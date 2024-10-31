@@ -4,10 +4,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-public class ShoppingCartTestCheckDiscountPercents4 {
-
+public class ShoppingCartTestCheckDiscountPercentsThree {
     @Test
-    public void checkDiscount4() {
+    public void checkDiscount3() {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.sharelane.com/cgi-bin/register.py?page=2&zip_code=12345&first_name=test&last_name=test&" +
@@ -21,7 +20,7 @@ public class ShoppingCartTestCheckDiscountPercents4 {
         driver.get("https://www.sharelane.com/cgi-bin/add_to_cart.py?book_id=1");
         driver.get("https://www.sharelane.com/cgi-bin/shopping_cart.py");
         driver.findElement(By.name("q")).clear();
-        driver.findElement(By.name("q")).sendKeys("100");
+        driver.findElement(By.name("q")).sendKeys("50");
         driver.findElement(By.cssSelector("[value = Update]")).click();
         String discountPercent = driver.
                 findElement(By.xpath("//table/tbody/tr[6]/td/table/tbody/tr[2]/td[5]/p/b")).getText();
@@ -29,11 +28,10 @@ public class ShoppingCartTestCheckDiscountPercents4 {
                 findElement(By.xpath("//table/tbody/tr[6]/td/table/tbody/tr[2]/td[6]")).getText();
         String total = driver.
                 findElement(By.xpath("//table/tbody/tr[6]/td/table/tbody/tr[2]/td[7]")).getText();
-
         SoftAssert softAssert = new SoftAssert();
-        softAssert.assertEquals(discountPercent, 4);
-        softAssert.assertEquals(discount$, 40.0);
-        softAssert.assertEquals(total, 960.0);
+        softAssert.assertEquals(discountPercent, 3);
+        softAssert.assertEquals(discount$, 15.0);
+        softAssert.assertEquals(total, 485.0);
         driver.quit();
         softAssert.assertAll();
     }

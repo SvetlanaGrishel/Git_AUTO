@@ -4,8 +4,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-public class ShoppingCartTestCheckDiscountPercents8 {
-
+public class ShoppingCartTestCheckDiscountPercentsEight {
     @Test
     public void checkDiscount8() {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
@@ -29,7 +28,6 @@ public class ShoppingCartTestCheckDiscountPercents8 {
                 findElement(By.xpath("//table/tbody/tr[6]/td/table/tbody/tr[2]/td[6]")).getText();
         String total = driver.
                 findElement(By.xpath("//table/tbody/tr[6]/td/table/tbody/tr[2]/td[7]")).getText();
-
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertEquals(discountPercent, 8);
         softAssert.assertEquals(discount$, 8000.0);
